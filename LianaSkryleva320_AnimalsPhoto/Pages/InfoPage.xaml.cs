@@ -21,12 +21,30 @@ namespace LianaSkryleva320_AnimalsPhoto.Pages
     /// </summary>
     public partial class InfoPage : Page
     {
-        public static List<User> Users { get; set; }
+        public static List<Animal> animal { get; set; }
         public InfoPage()
         {
             InitializeComponent();
-            Users = new List<User>((IEnumerable<User>)Connection.animals.Animal.ToList());
+            animal= new List<Animal>(Connection.animals.Animal.Where(i => i.Name == "Ра").ToList());
             this.DataContext = this;
+        }
+
+        private void FindTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ListView.ItemsSource = animal.Where(i => i.Name.StartsWith(FindTb.Text) || i.HowLifeInNowDay.StartsWith(FindTb.Text));
+        }
+
+        private void FilterCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FilterCb.SelectedIndex == 0)
+                ListView.ItemsSource = animal.FindAll(i => i.ID == 1);
+            else
+                ListView.ItemsSource = "";
+        }
+
+        private void AddBt_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddAnimal());
         }
     }
 }

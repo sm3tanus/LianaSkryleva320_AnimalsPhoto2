@@ -32,19 +32,19 @@
         <TextBlock FontSize="15"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Grid.Row="4">Фильтр по имени</TextBlock>
-        <ComboBox Name="FilterCb" Grid.Column="1" Height="40" Grid.Row="4">
+                   Grid.Row="4">Filter for name</TextBlock>
+        <ComboBox Name="FilterCb" Grid.Column="1" Height="40" Grid.Row="4" SelectionChanged="FilterCb_SelectionChanged">
             <TextBlock>Ра</TextBlock>
-            <TextBlock>Никто</TextBlock>
+            <TextBlock>Nobody</TextBlock>
         </ComboBox>
         <TextBlock Grid.Column="2"
                    FontSize="17"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Grid.Row="4">Поиск</TextBlock>
+                   Grid.Row="4">Find</TextBlock>
         <TextBox  Name="FindTb" Grid.Column="3" Grid.ColumnSpan="2"
-                  Height="40" Grid.Row="4"></TextBox>
-        <ListView ItemsSource="{Binding Users}"
+                  Height="40" Grid.Row="4" TextChanged="FindTb_TextChanged"></TextBox>
+        <ListView ItemsSource="{Binding animal}"
          Name="ListView"
         Width="700"
         Height="200" Grid.Row="1" Grid.ColumnSpan="6"
@@ -52,7 +52,7 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Имя" Width="80">
+                        <GridViewColumn Header="Name" Width="80">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -61,7 +61,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Возраст" Width="70">
+                        <GridViewColumn Header="Age" Width="70">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
@@ -70,7 +70,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Когда встал" Width="70">
+                        <GridViewColumn Header="When wake up" Width="70">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
@@ -79,7 +79,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Когда поел" Width="70">
+                        <GridViewColumn Header="When eat" Width="70">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
@@ -88,7 +88,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Описание на сегодня" Width="200">
+                        <GridViewColumn Header="Information for now day" Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
@@ -97,7 +97,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Фото" Width="200">
+                        <GridViewColumn Header="Photo" Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
@@ -110,5 +110,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Grid.Row="5" Grid.ColumnSpan="5" Width="200" Height="40" Name="AddBt" Click="AddBt_Click">Add</Button>
     </Grid>
 </Page>
