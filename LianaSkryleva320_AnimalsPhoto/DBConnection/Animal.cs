@@ -14,21 +14,14 @@ namespace LianaSkryleva320_AnimalsPhoto.DBConnection
     
     public partial class Animal
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Animal()
-        {
-            this.User = new HashSet<User>();
-        }
-    
         public int ID { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> Age { get; set; }
+        public string Age { get; set; }
         public Nullable<System.TimeSpan> WhenWakeUp { get; set; }
         public Nullable<System.TimeSpan> WhenEat { get; set; }
         public string HowLifeInNowDay { get; set; }
+        public Nullable<int> IDType { get; set; }
         public byte[] Photo { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
+        public virtual Type Type { get; set; }
     }
 }

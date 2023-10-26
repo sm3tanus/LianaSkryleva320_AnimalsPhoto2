@@ -26,3 +26,5 @@ C:\Users\202119\source\repos\LianaSkryleva320_AnimalsPhoto\LianaSkryleva320_Anim
 C:\Users\202119\source\repos\LianaSkryleva320_AnimalsPhoto\LianaSkryleva320_AnimalsPhoto\obj\Debug\LianaSkryleva320_AnimalsPhoto.pdb
 C:\Users\202119\source\repos\LianaSkryleva320_AnimalsPhoto\LianaSkryleva320_AnimalsPhoto\obj\Debug\Pages\InfoPageForDelya.g.cs
 C:\Users\202119\source\repos\LianaSkryleva320_AnimalsPhoto\LianaSkryleva320_AnimalsPhoto\obj\Debug\Pages\InfoPageForDelya.baml
+C:\Users\202119\source\repos\LianaSkryleva320_AnimalsPhoto\LianaSkryleva320_AnimalsPhoto\obj\Debug\Pages\AddAnimal.g.cs
+C:\Users\202119\source\repos\LianaSkryleva320_AnimalsPhoto\LianaSkryleva320_AnimalsPhoto\obj\Debug\Pages\AddAnimal.baml

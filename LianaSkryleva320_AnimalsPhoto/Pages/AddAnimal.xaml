@@ -30,7 +30,7 @@
            Grid.ColumnSpan="5"
            HorizontalAlignment="Center">ADD ANIMAL!</TextBlock>
         <Button Grid.Row="1"
-                Height="40" Name="AddPhoto">AddPhoto</Button>
+                Height="40" Name="AddPhoto" Click="AddPhoto_Click">AddPhoto</Button>
         <Image Grid.Row="2"
                Grid.Column="0"
                Grid.RowSpan="3"
@@ -41,40 +41,34 @@
                    Grid.Column="2"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   FontSize="20">Имя</TextBlock>
+                   FontSize="20">Name</TextBlock>
         <TextBlock 
            Grid.Row="3"
            Grid.Column="2"
            HorizontalAlignment="Center"
            VerticalAlignment="Center"
-           FontSize="20">Возраст</TextBlock>
+           FontSize="20">Age</TextBlock>
         <TextBlock 
            Grid.Row="4"
            Grid.Column="2"
            HorizontalAlignment="Center"
            VerticalAlignment="Center"
-           FontSize="20">Когда встал</TextBlock>
-        <TextBlock 
-           Grid.Row="5"
-           Grid.Column="2"
-           HorizontalAlignment="Center"
-           VerticalAlignment="Center"
-           FontSize="20">Описание</TextBlock>
+           FontSize="20">Info for now</TextBlock>
         <TextBox Grid.Row="3"
          Grid.Column="3"
          Height="30"
-         Name="FirstNameTb"></TextBox>
+         Name="Ageb"></TextBox>
         <TextBox Grid.Row="4"
          Grid.Column="3"
          Height="30"
-         Name="PatronymicTb"></TextBox>
+         Name="InfoTb"></TextBox>
         <ComboBox
          x:Name ="EmplCb"
          Grid.Column="3"
          Grid.Row="2"
          Foreground="Black"
          Height="40"
-         ItemsSource="{Binding genders}" >
+         ItemsSource="{Binding genders}" SelectionChanged="EmplCb_SelectionChanged" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -83,15 +77,10 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button Grid.Row="4"
-        Grid.Column="4"
-        Height="40"
-        Width="120"
-        Name="ListVBt" Click="ListVBt_Click" >Перейти к списку</Button>
         <Button Grid.Row="5"
-                Grid.Column="4"
+                Grid.Column="3"
                 Height="40"
                 Width="120"
-                Name="Add" Click="Add_Click">Добавить</Button>
+                Name="BtAdd" Click="BtAdd_Click">Add</Button>
     </Grid>
 </Page>

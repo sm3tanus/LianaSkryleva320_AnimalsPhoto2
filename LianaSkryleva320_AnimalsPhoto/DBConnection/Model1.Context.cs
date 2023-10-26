@@ -13,10 +13,10 @@ namespace LianaSkryleva320_AnimalsPhoto.DBConnection
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AnimalsPhoto320Entities : DbContext
+    public partial class AnimalsPhoto320Entities1 : DbContext
     {
-        public AnimalsPhoto320Entities()
-            : base("name=AnimalsPhoto320Entities")
+        public AnimalsPhoto320Entities1()
+            : base("name=AnimalsPhoto320Entities1")
         {
         }
     
@@ -27,6 +27,7 @@ namespace LianaSkryleva320_AnimalsPhoto.DBConnection
     
         public virtual DbSet<Animal> Animal { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Type> Type { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

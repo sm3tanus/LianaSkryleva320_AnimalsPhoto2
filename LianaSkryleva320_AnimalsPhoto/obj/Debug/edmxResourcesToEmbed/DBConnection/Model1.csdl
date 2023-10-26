@@ -5,12 +5,12 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Age" Type="Int32" />
+    <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="WhenWakeUp" Type="Time" Precision="0" />
     <Property Name="WhenEat" Type="Time" Precision="0" />
     <Property Name="HowLifeInNowDay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="User" Relationship="Self.FK_User_Animal1" FromRole="Animal" ToRole="User" />
+    <Property Name="IDType" Type="Int32" />
+    <NavigationProperty Name="Type" Relationship="Self.FK_Animal_Type" FromRole="Animal" ToRole="Type" />
     <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -23,6 +23,14 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Type" FromRole="Type" ToRole="Animal" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="ID" />
@@ -32,27 +40,27 @@
     <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IDAnimal" Type="Int32" />
-    <NavigationProperty Name="Animal" Relationship="Self.FK_User_Animal1" FromRole="User" ToRole="Animal" />
   </EntityType>
-  <Association Name="FK_User_Animal1">
-    <End Role="Animal" Type="Self.Animal" Multiplicity="0..1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
+  <Association Name="FK_Animal_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Animal">
+      <Principal Role="Type">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="IDAnimal" />
+      <Dependent Role="Animal">
+        <PropertyRef Name="IDType" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="AnimalsPhoto320Entities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="AnimalsPhoto320Entities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Animal" EntityType="Self.Animal" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Type" EntityType="Self.Type" />
     <EntitySet Name="User" EntityType="Self.User" />
-    <AssociationSet Name="FK_User_Animal1" Association="Self.FK_User_Animal1">
+    <AssociationSet Name="FK_Animal_Type" Association="Self.FK_Animal_Type">
+      <End Role="Type" EntitySet="Type" />
       <End Role="Animal" EntitySet="Animal" />
-      <End Role="User" EntitySet="User" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

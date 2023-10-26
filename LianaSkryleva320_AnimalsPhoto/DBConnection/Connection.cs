@@ -8,6 +8,6 @@ namespace LianaSkryleva320_AnimalsPhoto.DBConnection
 {
     public class Connection
     {
-        public static AnimalsPhoto320Entities animals = new AnimalsPhoto320Entities();
+        public static AnimalsPhoto320Entities1 animals = new AnimalsPhoto320Entities1();
     }
 }

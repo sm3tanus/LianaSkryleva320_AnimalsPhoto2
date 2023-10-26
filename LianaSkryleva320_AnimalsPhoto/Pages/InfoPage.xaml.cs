@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace LianaSkryleva320_AnimalsPhoto.Pages
 {
     /// <summary>
@@ -22,22 +23,23 @@ namespace LianaSkryleva320_AnimalsPhoto.Pages
     public partial class InfoPage : Page
     {
         public static List<Animal> animal { get; set; }
+        public static List<DBConnection.Type> type { get; set; }
         public InfoPage()
         {
             InitializeComponent();
-            animal= new List<Animal>(Connection.animals.Animal.Where(i => i.Name == "Ра").ToList());
+            animal= new List<Animal>(Connection.animals.Animal.Where(i => i.IDType == 1).ToList());
             this.DataContext = this;
         }
 
         private void FindTb_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ListView.ItemsSource = animal.Where(i => i.Name.StartsWith(FindTb.Text) || i.HowLifeInNowDay.StartsWith(FindTb.Text));
+            ListView.ItemsSource = animal.Where(i => i.Age.StartsWith(FindTb.Text) || i.HowLifeInNowDay.StartsWith(FindTb.Text));
         }
 
         private void FilterCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (FilterCb.SelectedIndex == 0)
-                ListView.ItemsSource = animal.FindAll(i => i.ID == 1);
+                ListView.ItemsSource = animal.FindAll(i => i.IDType == 1);
             else
                 ListView.ItemsSource = "";
         }

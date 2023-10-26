@@ -5,11 +5,11 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="Age" Type="int" />
+    <Property Name="Age" Type="nvarchar" MaxLength="50" />
     <Property Name="WhenWakeUp" Type="time" Precision="0" />
     <Property Name="WhenEat" Type="time" Precision="0" />
     <Property Name="HowLifeInNowDay" Type="nvarchar(max)" />
+    <Property Name="IDType" Type="int" />
     <Property Name="Photo" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -22,6 +22,13 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="ID" />
@@ -32,25 +39,26 @@
     <Property Name="Password" Type="nvarchar" MaxLength="50" />
     <Property Name="IDAnimal" Type="int" />
   </EntityType>
-  <Association Name="FK_User_Animal1">
-    <End Role="Animal" Type="Self.Animal" Multiplicity="0..1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
+  <Association Name="FK_Animal_Type">
+    <End Role="Type" Type="Self.Type" Multiplicity="0..1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Animal">
+      <Principal Role="Type">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="IDAnimal" />
+      <Dependent Role="Animal">
+        <PropertyRef Name="IDType" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="Хранилище AnimalsPhoto320ModelContainer">
     <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_User_Animal1" Association="Self.FK_User_Animal1">
+    <AssociationSet Name="FK_Animal_Type" Association="Self.FK_Animal_Type">
+      <End Role="Type" EntitySet="Type" />
       <End Role="Animal" EntitySet="Animal" />
-      <End Role="User" EntitySet="User" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище AnimalsPhoto320ModelContainer" CdmEntityContainer="AnimalsPhoto320Entities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище AnimalsPhoto320ModelContainer" CdmEntityContainer="AnimalsPhoto320Entities1">
     <EntitySetMapping Name="Animal">
       <EntityTypeMapping TypeName="AnimalsPhoto320Model.Animal">
         <MappingFragment StoreEntitySet="Animal">
           <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Age" ColumnName="Age" />
           <ScalarProperty Name="WhenWakeUp" ColumnName="WhenWakeUp" />
           <ScalarProperty Name="WhenEat" ColumnName="WhenEat" />
           <ScalarProperty Name="HowLifeInNowDay" ColumnName="HowLifeInNowDay" />
+          <ScalarProperty Name="IDType" ColumnName="IDType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -22,6 +22,14 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Type">
+      <EntityTypeMapping TypeName="AnimalsPhoto320Model.Type">
+        <MappingFragment StoreEntitySet="Type">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
