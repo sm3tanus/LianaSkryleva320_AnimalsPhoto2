@@ -28,13 +28,15 @@ namespace LianaSkryleva320_AnimalsPhoto.Pages
         public AddAnimal()
         {
             InitializeComponent();
+            type = new List<DBConnection.Type>(Connection.animals.Type.ToList());
+            this.DataContext = this;
         }
         public Animal animals = new Animal();
         private void AddPhoto_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog()
             {
-                Filter = "*.png|*.png|*.jpg|*.jpg|*.jpeg|*.jpeg"
+                Filter = "*.png|*.png|*.jpg|*.jpg|*.jfif|*.jfif"
             };
             if (openFileDialog.ShowDialog().GetValueOrDefault())
             {
@@ -50,7 +52,11 @@ namespace LianaSkryleva320_AnimalsPhoto.Pages
 
         private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
-            
+            animals.Age = Ageb.Text.Trim();
+            animals.HowLifeInNowDay = InfoTb.Text.Trim();
+            Connection.animals.Animal.Add(animals);
+            Connection.animals.SaveChanges();
+            NavigationService.Navigate(new Auth());
         }
     }
 }

@@ -68,7 +68,7 @@
          Grid.Row="2"
          Foreground="Black"
          Height="40"
-         ItemsSource="{Binding genders}" SelectionChanged="EmplCb_SelectionChanged" >
+         ItemsSource="{Binding type}" SelectionChanged="EmplCb_SelectionChanged" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

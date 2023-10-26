@@ -9,6 +9,107 @@
       Title="InfoPageForDelya">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock 
+           FontSize="29"
+           VerticalAlignment="Center"
+           Grid.ColumnSpan="5"
+           HorizontalAlignment="Center">HELLO, DELYA!</TextBlock>
+        <TextBlock FontSize="15"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"
+           Grid.Row="4">Filter for name</TextBlock>
+        <ComboBox Name="FilterCb" Grid.Column="1" Height="40" Grid.Row="4" SelectionChanged="FilterCb_SelectionChanged">
+            <TextBlock>Нуби</TextBlock>
+            <TextBlock>Nobody</TextBlock>
+        </ComboBox>
+        <TextBlock Grid.Column="2"
+           FontSize="17"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"
+           Grid.Row="4">Find</TextBlock>
+        <TextBox  Name="FindTb" Grid.Column="3" Grid.ColumnSpan="2"
+          Height="40" Grid.Row="4" TextChanged="FindTb_TextChanged"></TextBox>
+        <ListView ItemsSource="{Binding animal}"
+ Name="ListView"
+Width="700"
+Height="200" Grid.Row="1" Grid.ColumnSpan="6"
+          Grid.RowSpan="3">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Name" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Type.Name}"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Age" Width="70">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Age}"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="When wake up" Width="70">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding WhenWakeUp}"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="When eat" Width="70">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding WhenEat}"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Information for now day" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding HowLifeInNowDay}"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Photo" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Image Source="{Binding Photo}"></Image>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Row="5" Grid.ColumnSpan="5" Width="200" Height="40" Name="AddBt" Click="AddBt_Click">Add</Button>
     </Grid>
 </Page>

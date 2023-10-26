@@ -101,7 +101,7 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
-                                        <Image Source="{Binding Photo1}"></Image>
+                                        <Image Source="{Binding Photo}"></Image>
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
